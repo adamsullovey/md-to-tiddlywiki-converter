@@ -4,9 +4,11 @@ const matter = require("gray-matter");
 
 const { convertEntry, sortEntriesByCreated } = require("./utils");
 
+const mdPath = "../notes/content/**/*.md";
+
 async function main() {
   const files = glob
-    .sync("../notes/content/**/*.md")
+    .sync(mdPath)
     .filter((path) => !path.includes("properties"));
 
   const entries = await Promise.all(
